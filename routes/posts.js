@@ -23,7 +23,6 @@ router.get('/', async function (req, res, next) {
         filteredPosts.push(post)
       }
     })
-    console.log(filteredPosts)
     // Checks for the sortBy parameter in the URL, if there is one, then proceeds
     if (req.query.sortBy) {
       // Begins a switch case that uses the sortBy parameter to determine how data will be returned
@@ -175,11 +174,12 @@ router.get('/', async function (req, res, next) {
     res.status(200).send(filteredPosts)
     return
   } else {
-    res.status(400).json({ error: `Tag parameter is required`})
+    res.status(400).json({ error: `Tag parameter is`})
     return
   }
 });
 
+// To add data to local database for testing
 router.post(`/`, async function (req, res, next) {
   console.log(`post request coming in`)
   console.log(req.body)
